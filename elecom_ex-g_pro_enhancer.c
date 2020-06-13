@@ -8,10 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include <stdio.h>
-#include <stdlib.h>
-
+#include "yaml_loader.h"
 
 #define DEBUG 1
 #define BUF_LEN 8 // DO NOT CHANGE!!!
@@ -71,34 +68,66 @@ void print_event(char *buf)
  */
 void play_event(char *buf)
 {
+        CONFIG *conf = readConf("config.yaml");
         // button state updated in 4th buffer slot; 1 = pressed, 0 = released
-        char st = buf[4];
+        char pressed = buf[4];
 
         // button ID stored in 2nd buffer slot; refer to ID enumerator
         switch (buf[2]) {
         case LEFT:
+                if (pressed)
+                        system(conf->LeftClickDown);
+                else
+                        system(conf->LeftClickUp);
                 break;
         case RIGHT:
+                if (pressed)
+                        system(conf->RightClickDown);
+                else
+                        system(conf->RightClickUp);
                 break;
         case MIDDLE:
+                if (pressed)
+                        system(conf->MiddleClickDown);
+                else
+                        system(conf->MiddleClickUp);
                 break;
         case BACK:
+                if (pressed)
+                        system(conf->BackClickDown);
+                else
+                        system(conf->BackClickUp);
                 break;
         case FORWARD:
+                if (pressed)
+                        system(conf->ForwardClickDown);
+                else
+                        system(conf->ForwardClickUp);
                 break;
         case THUMB:
+                if (pressed)
+                        system(conf->ThumbClickDown);
+                else
+                        system(conf->ThumbClickUp);
                 break;
         case RING:
-                if (st)
-                        system("xdotool key f");
+                if (pressed)
+                        system(conf->RingClickDown);
+                else
+                        system(conf->RingClickUp);
                 break;
         case PALM:
+                if (pressed)
+                        system(conf->PalmClickDown);
+                else
+                        system(conf->PalmClickUp);
                 break;
         default:
                 break;
         }
         return;
 }
+
 int main(int argc, char **argv)
 {
         // open the device input stream

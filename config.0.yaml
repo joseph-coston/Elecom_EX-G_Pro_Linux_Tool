@@ -1,0 +1,31 @@
+# configuration in use if named config.yaml
+# altrenate configuration if names config.0.yaml
+
+# for each button event, add the terminal command to executeto the quotes
+LeftClickDown: ""
+LeftClickUp: ""
+
+RightClickDown: ""
+RightClickUp: ""
+
+MiddleClickDown: ""
+MiddleClickUp: ""
+
+# I like to set my ring finger click to decrease DPI
+RingClickDown: "xinput --set-prop \"pointer:ELECOM TrackBall Mouse EX-G Pro TrackBall\" 291 -1"
+RingClickUp: "xinput --set-prop \"pointer:ELECOM TrackBall Mouse EX-G Pro TrackBall\" 291 0"
+
+# press 'f' to pay respects
+ThumbClickDown: "xdotool key e"
+ThumbClickUp: ""
+
+# every day, I'm shuffeling
+PalmClickDown: "mv ~/eclipse-workspace/Mouse_Mod/config.yaml ~/eclipse-workspace/Mouse_Mod/config.1.yaml && mv ~/eclipse-workspace/Mouse_Mod/config.0.yaml ~/eclipse-workspace/Mouse_Mod/config.yaml && mv ~/eclipse-workspace/Mouse_Mod/config.1.yaml ~/eclipse-workspace/Mouse_Mod/config.0.yaml "
+PalmClickUp: ""
+
+ForwardClickDown: ""
+ForwardClickUp: ""
+
+BackClickDown: ""
+BackClickUp: ""
+
