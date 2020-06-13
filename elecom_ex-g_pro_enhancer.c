@@ -7,7 +7,11 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include <linux/input.h>
+#include <string.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+
 
 #define DEBUG 1
 #define BUF_LEN 8 // DO NOT CHANGE!!!
@@ -85,6 +89,8 @@ void play_event(char *buf)
         case THUMB:
                 break;
         case RING:
+                if (st)
+                        system("xdotool key f");
                 break;
         case PALM:
                 break;

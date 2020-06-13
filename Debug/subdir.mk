@@ -14,10 +14,10 @@ C_DEPS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
-%.o: ../%.c
+elecom_ex-g_pro_enhancer.o: ../elecom_ex-g_pro_enhancer.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C Compiler'
-	gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	gcc -lxdo -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"elecom_ex-g_pro_enhancer.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
